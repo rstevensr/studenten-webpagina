@@ -12,6 +12,62 @@
     <p id="text">hi</p>
     <img src="https://picsum.photos/300/300" alt="een afbeelding">
     <h1>Ryan</h1>
+   ====================================================================================================================================================================
+
+    <body>
+    <div id="str"></div>
+    <div id="dex"></div>
+    <div id="con"></div>
+    <div id="int"></div>
+    <div id="wis"></div>
+    <div id="cha"></div>
+
+    <button id="rollBtn">Mustafa</button>
+
+    <script>
+        console.log("Dubbelsteen");
+
+        function rollDice() {
+            return Math.ceil(Math.random() * 6);
+        }
+
+        function rollStat() {
+            let d1 = rollDice();
+            let d2 = rollDice();
+            let d3 = rollDice();
+            let d4 = rollDice();
+            console.log(d1, d2, d3, d4);
+
+            let lowest = Math.min(d1, d2, d3, d4);
+            let sum = d1 + d2 + d3 + d4 - lowest; // drop lowest
+            console.log("Total (drop lowest):", sum);
+            return sum;
+        }
+
+        function rollCharacter() {
+            let stat1 = rollStat();
+            let stat2 = rollStat();
+            let stat3 = rollStat();
+            let stat4 = rollStat();
+            let stat5 = rollStat();
+            let stat6 = rollStat();
+
+            document.getElementById("str").textContent = "STR: " + stat1;
+            document.getElementById("dex").textContent = "DEX: " + stat2;
+            document.getElementById("con").textContent = "CON: " + stat3;
+            document.getElementById("int").textContent = "INT: " + stat4;
+            document.getElementById("wis").textContent = "WIS: " + stat5;
+            document.getElementById("cha").textContent = "CHA: " + stat6;
+        }
+
+        // Initial roll
+        rollCharacter();
+
+        // Re-roll on button click
+        document.getElementById("rollBtn").addEventListener("click", rollCharacter);
+    </script>
+
+   ====================================================================================================================================================================
 
 </body>
 
